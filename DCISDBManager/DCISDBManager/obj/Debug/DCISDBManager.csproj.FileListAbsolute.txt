@@ -1,0 +1,7 @@
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\obj\Debug\DCISDBManager.csprojResolveAssemblyReference.cache
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\bin\Debug\DCISDBManager.dll.config
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\bin\Debug\DCISDBManager.dll
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\bin\Debug\DCISDBManager.pdb
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\bin\Debug\EAGetMail40.dll
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\obj\Debug\DCISDBManager.dll
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\obj\Debug\DCISDBManager.pdb

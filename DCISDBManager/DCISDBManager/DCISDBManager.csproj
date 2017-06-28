@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2CDF622B-6011-4A8E-82BC-D22805D47DF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DCISDBManager</RootNamespace>
+    <AssemblyName>DCISDBManager</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EAGetMail40">
+      <HintPath>.\EAGetMail40.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="DCISLC.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DCISLC.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="objLib\Certificate\CertificateApproval.cs" />
+    <Compile Include="objLib\Certificate\CertificateDownld.cs" />
+    <Compile Include="objLib\Certificate\CertificateRequest.cs" />
+    <Compile Include="objLib\Certificate\CertificateRequestDetail.cs" />
+    <Compile Include="objLib\Certificate\CertificateRequestHeader.cs" />
+    <Compile Include="objLib\Certificate\objmanualcertifi.cs" />
+    <Compile Include="objLib\Certificate\SupportingDocUpload.cs" />
+    <Compile Include="objLib\ContactDetail\ContactDetail.cs" />
+    <Compile Include="objLib\CustomerRequest\CustomerApproved.cs" />
+    <Compile Include="objLib\CustomerRequest\CustomerDetails.cs" />
+    <Compile Include="objLib\CustomerRequest\CustomerRequest.cs" />
+    <Compile Include="objLib\Email\Email.cs" />
+    <Compile Include="objLib\Email\EmailCertificateConfig.cs" />
+    <Compile Include="objLib\Email\EmailRequest.cs" />
+    <Compile Include="objLib\ExportSector\ExportSector.cs" />
+    <Compile Include="objLib\Invoice\InvoiceDetails.cs" />
+    <Compile Include="objLib\Invoice\InvoiceDetailSaving.cs" />
+    <Compile Include="objLib\Invoice\InvoiceTax.cs" />
+    <Compile Include="objLib\MasterMaintenance\CertificateUnitCharge.cs" />
+    <Compile Include="objLib\MasterMaintenance\Consignee.cs" />
+    <Compile Include="objLib\MasterMaintenance\Consignor.cs" />
+    <Compile Include="objLib\MasterMaintenance\ExportSec.cs" />
+    <Compile Include="objLib\MasterMaintenance\GetTemplate.cs" />
+    <Compile Include="objLib\MasterMaintenance\ManualCertificate.cs" />
+    <Compile Include="objLib\MasterMaintenance\OwnerDetailsobj.cs" />
+    <Compile Include="objLib\MasterMaintenance\Packagetype.cs" />
+    <Compile Include="objLib\MasterMaintenance\ReasonsMaintenance.cs" />
+    <Compile Include="objLib\MasterMaintenance\SignatureLevels.cs" />
+    <Compile Include="objLib\MasterMaintenance\SupportDocuments.cs" />
+    <Compile Include="objLib\MasterMaintenance\Tax.cs" />
+    <Compile Include="objLib\MasterMaintenance\TaxPriorityList.cs" />
+    <Compile Include="objLib\MasterMaintenance\TemplateHeader.cs" />
+    <Compile Include="objLib\MasterMaintenance\TemplateSupportingDocument.cs" />
+    <Compile Include="objLib\Master\objParameters.cs" />
+    <Compile Include="objLib\Master\RejectResons.cs" />
+    <Compile Include="objLib\Master\SDSignatureConfig.cs" />
+    <Compile Include="objLib\Parameters\Parameters.cs" />
+    <Compile Include="objLib\Rates\Rates.cs" />
+    <Compile Include="objLib\TaxDetails\getTaxDetails.cs" />
+    <Compile Include="objLib\TaxDetails\setCustomerTaxDetails.cs" />
+    <Compile Include="objLib\Template\CertificateTemplate.cs" />
+    <Compile Include="objLib\Template\CustomerTemplate.cs" />
+    <Compile Include="objLib\Usr\AddNewExpoterUser.cs" />
+    <Compile Include="objLib\Usr\User.cs" />
+    <Compile Include="objLib\Usr\UserRequest.cs" />
+    <Compile Include="objLib\Usr\UserSession.cs" />
+    <Compile Include="objLib\Usr\UserSignature.cs" />
+    <Compile Include="objLib\Master\Country.cs" />
+    <Compile Include="objLib\Master\objResultSet.cs" />
+    <Compile Include="objLib\Master\PackageTypeList.cs" />
+    <Compile Include="objLib\Master\SupportingDocList.cs" />
+    <Compile Include="objLib\Usr\UserGroup.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="trnLib\Auth\CheckAuthManager.cs" />
+    <Compile Include="trnLib\CertificateManagement\CertificateManager.cs" />
+    <Compile Include="trnLib\CertificateManagement\CertificateRequestManager.cs" />
+    <Compile Include="trnLib\CertificateManagement\CertificateSignManagment.cs" />
+    <Compile Include="trnLib\CertificateManagement\DownloadCertificate.cs" />
+    <Compile Include="trnLib\CertificateManagement\manualCertifiManagement.cs" />
+    <Compile Include="trnLib\ContactManagement\ContactFormManger.cs" />
+    <Compile Include="trnLib\CustomerRequestManagement\CustomerApproveManager.cs" />
+    <Compile Include="trnLib\CustomerRequestManagement\CustomerDetailManager.cs" />
+    <Compile Include="trnLib\CustomerRequestManagement\CustomerRequestManager.cs" />
+    <Compile Include="trnLib\EmailManager\CertficateRequestDataManagement.cs" />
+    <Compile Include="trnLib\EmailManager\EmailManager.cs" />
+    <Compile Include="trnLib\EmailManager\EmailRequestManager.cs" />
+    <Compile Include="trnLib\EmailManager\MailSendManager.cs" />
+    <Compile Include="trnLib\ExportSectorManagement\ExportSectorManager.cs" />
+    <Compile Include="trnLib\InvoiceManeger\InvoiceDetailSavingManager.cs" />
+    <Compile Include="trnLib\InvoiceManeger\InvoiceManager.cs" />
+    <Compile Include="trnLib\InvoiceManeger\InvoiceTaxManager.cs" />
+    <Compile Include="trnLib\MasterDataManagement\RejectResonManagment.cs" />
+    <Compile Include="trnLib\MasterDataManagement\TemplateDownloadManager.cs" />
+    <Compile Include="trnLib\MasterMaintenance\ConsigneeManagement.cs" />
+    <Compile Include="trnLib\MasterMaintenance\ConsignorManagement.cs" />
+    <Compile Include="trnLib\MasterMaintenance\ExportSectorManagement.cs" />
+    <Compile Include="trnLib\MasterMaintenance\ManualCertificateManagement.cs" />
+    <Compile Include="trnLib\MasterMaintenance\OwnerDetailManagement.cs" />
+    <Compile Include="trnLib\MasterMaintenance\SupportingDocumentManagement.cs" />
+    <Compile Include="trnLib\MasterMaintenance\TemplateForSupportingDocumentManagement.cs" />
+    <Compile Include="trnLib\ParameterManagement\CustomerEmailManager.cs" />
+    <Compile Include="trnLib\MasterDataManagement\CountryManager.cs" />
+    <Compile Include="trnLib\MasterDataManagement\PackageTypeManager.cs" />
+    <Compile Include="trnLib\MasterMaintenance\PackageTypeManagement.cs" />
+    <Compile Include="trnLib\MasterMaintenance\ReasonsManagement.cs" />
+    <Compile Include="trnLib\MasterMaintenance\SignatureLevelManagement.cs" />
+    <Compile Include="trnLib\MasterMaintenance\TaxDataMaintenance.cs" />
+    <Compile Include="trnLib\MasterMaintenance\TemplateManagement.cs" />
+    <Compile Include="trnLib\MasterMaintenance\UnitChargeMaintenance.cs" />
+    <Compile Include="trnLib\ParameterManagement\NotitificationCount.cs" />
+    <Compile Include="trnLib\ParameterManagement\ParameaterManager.cs" />
+    <Compile Include="trnLib\ParameterManagement\SequenceManager.cs" />
+    <Compile Include="trnLib\ParameterManagement\TemplateManagement.cs" />
+    <Compile Include="trnLib\RateManagement\RateManager.cs" />
+    <Compile Include="trnLib\ReportManagement\ReportManager.cs" />
+    <Compile Include="trnLib\SupportDocumentSignManagement\SDocSignRequsetManager.cs" />
+    <Compile Include="trnLib\TaxManagement\CustometTaxDetailManager.cs" />
+    <Compile Include="trnLib\TaxManagement\TaxManager.cs" />
+    <Compile Include="trnLib\TemplateMnangement\CustomerTemplateManager.cs" />
+    <Compile Include="trnLib\UserManagement\AddNewExpoterUserManagement.cs" />
+    <Compile Include="trnLib\UserManagement\UserGroupManager.cs" />
+    <Compile Include="trnLib\UserManagement\UserManager.cs" />
+    <Compile Include="trnLib\UserManagement\UserRequestManager.cs" />
+    <Compile Include="trnLib\Utility\EncDec.cs" />
+    <Compile Include="trnLib\Utility\ErrorLog.cs" />
+    <Compile Include="trnLib\Utility\MailLog.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="DCISLC.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DCISLC.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DCISLC.dbml.layout">
+      <DependentUpon>DCISLC.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

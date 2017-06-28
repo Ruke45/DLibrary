@@ -1,0 +1,6 @@
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\bin\Release\DCISDBManager.dll.config
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\bin\Release\DCISDBManager.dll
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\bin\Release\DCISDBManager.pdb
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\bin\Release\EAGetMail40.dll
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\obj\Release\DCISDBManager.dll
+C:\Users\USERPC\Documents\GitHub\NCEDatamanagement\DCISDBManager\DCISDBManager\obj\Release\DCISDBManager.pdb
