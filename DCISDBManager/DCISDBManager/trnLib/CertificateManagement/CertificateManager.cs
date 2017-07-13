@@ -229,7 +229,7 @@ namespace DCISDBManager.trnLib.CertificateManagement
           }
 
 
-          public List<CertificateRequestHeader> getSuuportingDocumentApproval(string CustomerId, string Status, string StartDate, string EndDate, string InvoiceRateId, string OtherRateId, string SupdocInvoiceRateId, string SupDocOtherRateId)
+          public List<CertificateRequestHeader> getSuuportingDocumentApproval(string CustomerId, string Status, string StartDate, string EndDate, string InvoiceRateId, string OtherRateId, string SupdocInvoiceRateId, string SupDocOtherRateId, string AttachSheetId)
           {
               try
               {
@@ -239,7 +239,7 @@ namespace DCISDBManager.trnLib.CertificateManagement
 
 
                       datacontext.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["DocMgmtDBConnectionString"].ToString();
-                      System.Data.Linq.ISingleResult<DCISgetSuppotingDocumentPeriodicDetailResult> lst = datacontext.DCISgetSuppotingDocumentPeriodicDetail(CustomerId, Status, StartDate, EndDate, InvoiceRateId, OtherRateId,SupdocInvoiceRateId,SupDocOtherRateId);
+                      System.Data.Linq.ISingleResult<DCISgetSuppotingDocumentPeriodicDetailResult> lst = datacontext.DCISgetSuppotingDocumentPeriodicDetail(CustomerId, Status, StartDate, EndDate, InvoiceRateId, OtherRateId, SupdocInvoiceRateId, SupDocOtherRateId, AttachSheetId);
                       foreach (DCISgetSuppotingDocumentPeriodicDetailResult result in lst)
                       {
                           CertificateRequestHeader SRH = new CertificateRequestHeader();

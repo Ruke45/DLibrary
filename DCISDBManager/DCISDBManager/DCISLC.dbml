@@ -1787,23 +1787,6 @@
       <Column Name="CertificatePath" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.DCISgetSuppotingDocumentPeriodicDetail" Method="DCISgetSuppotingDocumentPeriodicDetail">
-    <Parameter Name="customerId" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="status" Type="System.String" DbType="VarChar(1)" />
-    <Parameter Name="startDate" Type="System.String" DbType="VarChar(8)" />
-    <Parameter Name="endDate" Type="System.String" DbType="VarChar(8)" />
-    <Parameter Name="InvoiceRateId" Parameter="invoiceRateId" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="OtherRateId" Parameter="otherRateId" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="supdocInvoiceRateId" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="supdocOtherRateId" Type="System.String" DbType="VarChar(20)" />
-    <ElementType Name="DCISgetSuppotingDocumentPeriodicDetailResult">
-      <Column Name="RequestID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="UploadDocName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="SupportingDocID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Rates" Type="System.Decimal" DbType="Decimal(18,3) NOT NULL" CanBeNull="false" />
-      <Column Name="RatesId" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.DCISgetPendingSDocApprovals" Method="DCISgetPendingSDocApprovals">
     <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(5)" />
     <Parameter Name="CustomerID" Parameter="customerID" Type="System.String" DbType="VarChar(20)" />
@@ -3209,6 +3192,24 @@
       <Column Name="Consignor" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
       <Column Name="Consignee" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="InvoiceNo" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DCISgetSuppotingDocumentPeriodicDetail" Method="DCISgetSuppotingDocumentPeriodicDetail">
+    <Parameter Name="customerId" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="status" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="startDate" Type="System.String" DbType="VarChar(8)" />
+    <Parameter Name="endDate" Type="System.String" DbType="VarChar(8)" />
+    <Parameter Name="InvoiceRateId" Parameter="invoiceRateId" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="OtherRateId" Parameter="otherRateId" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="supdocInvoiceRateId" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="supdocOtherRateId" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="AtachSheetId" Parameter="atachSheetId" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="DCISgetSuppotingDocumentPeriodicDetailResult">
+      <Column Name="RequestID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="UploadDocName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SupportingDocID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Rates" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="RatesId" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>
