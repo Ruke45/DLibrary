@@ -3212,4 +3212,13 @@
       <Column Name="RatesId" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.DCISgetattachdocumentdetailsfordown" Method="DCISgetattachdocumentdetailsfordown">
+    <Parameter Name="Certid" Parameter="certid" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="DCISgetattachdocumentdetailsfordownResult">
+      <Column Name="RequestRefNo" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="UploadedPath" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="SupportingDocumentName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SupportingDocumentId" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

@@ -2391,6 +2391,13 @@ namespace DCISDBManager
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerId, status, startDate, endDate, invoiceRateId, otherRateId, supdocInvoiceRateId, supdocOtherRateId, atachSheetId);
 			return ((ISingleResult<DCISgetSuppotingDocumentPeriodicDetailResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DCISgetattachdocumentdetailsfordown")]
+		public ISingleResult<DCISgetattachdocumentdetailsfordownResult> DCISgetattachdocumentdetailsfordown([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Certid", DbType="VarChar(20)")] string certid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), certid);
+			return ((ISingleResult<DCISgetattachdocumentdetailsfordownResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class DCISgetUserGroupResult
@@ -24198,6 +24205,86 @@ namespace DCISDBManager
 				if ((this._RatesId != value))
 				{
 					this._RatesId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class DCISgetattachdocumentdetailsfordownResult
+	{
+		
+		private string _RequestRefNo;
+		
+		private string _UploadedPath;
+		
+		private string _SupportingDocumentName;
+		
+		private string _SupportingDocumentId;
+		
+		public DCISgetattachdocumentdetailsfordownResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestRefNo", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string RequestRefNo
+		{
+			get
+			{
+				return this._RequestRefNo;
+			}
+			set
+			{
+				if ((this._RequestRefNo != value))
+				{
+					this._RequestRefNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UploadedPath", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string UploadedPath
+		{
+			get
+			{
+				return this._UploadedPath;
+			}
+			set
+			{
+				if ((this._UploadedPath != value))
+				{
+					this._UploadedPath = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupportingDocumentName", DbType="VarChar(100)")]
+		public string SupportingDocumentName
+		{
+			get
+			{
+				return this._SupportingDocumentName;
+			}
+			set
+			{
+				if ((this._SupportingDocumentName != value))
+				{
+					this._SupportingDocumentName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupportingDocumentId", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string SupportingDocumentId
+		{
+			get
+			{
+				return this._SupportingDocumentId;
+			}
+			set
+			{
+				if ((this._SupportingDocumentId != value))
+				{
+					this._SupportingDocumentId = value;
 				}
 			}
 		}

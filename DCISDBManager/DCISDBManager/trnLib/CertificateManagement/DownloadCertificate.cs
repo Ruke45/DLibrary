@@ -12,7 +12,7 @@ using DCISDBManager.objLib.Master;
 
 namespace DCISDBManager.trnLib.CertificateManagement
 {
-   public  class DownloadCertificate
+    public class DownloadCertificate
     {
 
        public List<CertificateDownld> getRequestID(string RequestId)
@@ -87,6 +87,46 @@ namespace DCISDBManager.trnLib.CertificateManagement
                        cd.Certificate_Name = result.DownloadDocName;
                        cd.Downvery_ = result.SupportingDocID;
                     
+
+
+                       lstpackage.Add(cd);
+
+                   }
+               }
+
+               return lstpackage;
+           }
+           catch (Exception ex)
+           {
+               ErrorLog.LogError(ex);
+               return null;
+           }
+
+
+       }
+
+
+       public List<CertificateDownld> getattachedDocumentsUnsinged(string RequestId)
+       {
+           try
+           {
+
+               List<CertificateDownld> lstpackage = new List<CertificateDownld>();
+               using (DCISLCDataContext datacontext = new DCISLCDataContext())
+               {
+                   datacontext.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["DocMgmtDBConnectionString"].ToString();
+                   System.Data.Linq.ISingleResult<DCISgetattachdocumentdetailsfordownResult> lst = datacontext.DCISgetattachdocumentdetailsfordown(RequestId);
+
+                   CertificateDownld cd;
+
+                   foreach (DCISgetattachdocumentdetailsfordownResult result in lst)
+                   {
+                       cd = new CertificateDownld();
+                       cd.Certificate_Path = result.UploadedPath;
+                       cd.Request_Id = result.RequestRefNo;
+                       cd.Certificate_Name = result.SupportingDocumentName;
+                       cd.Downvery_ = result.SupportingDocumentId;
+
 
 
                        lstpackage.Add(cd);
