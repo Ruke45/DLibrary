@@ -33,10 +33,14 @@
     <Reference Include="EAGetMail40">
       <HintPath>.\EAGetMail40.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -103,6 +107,15 @@
     <Compile Include="objLib\Master\PackageTypeList.cs" />
     <Compile Include="objLib\Master\SupportingDocList.cs" />
     <Compile Include="objLib\Usr\UserGroup.cs" />
+    <Compile Include="PDFCreator\CertificateCreate.cs" />
+    <Compile Include="PDFCreator\ColumnWithHSTemplate.cs" />
+    <Compile Include="PDFCreator\ColumnWithoutHSTemplate.cs" />
+    <Compile Include="PDFCreator\MassActiveCertificateTemplate.cs" />
+    <Compile Include="PDFCreator\NidroCertificateTemplate.cs" />
+    <Compile Include="PDFCreator\OrientGlobalCertificateTemplate.cs" />
+    <Compile Include="PDFCreator\RowWithHSTemplate.cs" />
+    <Compile Include="PDFCreator\RowWithoutHSTemplate.cs" />
+    <Compile Include="PDFCreator\Signature.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

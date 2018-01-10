@@ -79,5 +79,42 @@ namespace DCISDBManager.trnLib.ReportManagement
             }
 
         }
+
+        public DataTable getCustomerReport()
+        {
+            try
+            {
+                connection.Open();
+
+                DataTable dt = new DataTable();
+
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Connection = connection;
+
+                cmd.CommandText = "DCISgetCustomerList";
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                return dt;
+
+
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.LogError(ex);
+                return null;
+            }
+            finally
+            {
+
+                connection.Close();
+
+            }
+
+        }
     }
 }
