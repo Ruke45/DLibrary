@@ -172,6 +172,13 @@ namespace DCISDBManager.objLib.MasterMaintenance
             set { URYcordinates = value; }
         }
 
+        string SDCertificateID;
+        public string SD_CertificateID
+        {
+            get { return SDCertificateID; }
+            set { SDCertificateID = value; }
+        }
+
 
 
 

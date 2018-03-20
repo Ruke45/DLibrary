@@ -12,3 +12,11 @@ C:\Users\USERPC\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\bin\Releas
 C:\Users\USERPC\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\obj\Release\DCISDBManager.csprojResolveAssemblyReference.cache
 C:\Users\USERPC\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\obj\Release\DCISDBManager.dll
 C:\Users\USERPC\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\obj\Release\DCISDBManager.pdb
+C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\bin\Release\DCISDBManager.dll.config
+C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\bin\Release\DCISDBManager.dll
+C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\bin\Release\DCISDBManager.pdb
+C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\bin\Release\EAGetMail40.dll
+C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\bin\Release\itextsharp.dll
+C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\obj\Release\DCISDBManager.dll
+C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\obj\Release\DCISDBManager.pdb
+C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\obj\Release\DCISDBManager.csprojResolveAssemblyReference.cache

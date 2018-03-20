@@ -99,12 +99,14 @@ namespace DCISDBManager.trnLib.MasterMaintainance
                       SD.Approved_BY = result.ApprovedBy;
                       string Con = result.Consignor.Split('<')[0];
                       string Cone = result.Consignee.Split('<')[0];
-
+                       
 
 
                       SD.Consignee_ = Cone;
                       SD.Consignor_ = Con;
                       SD.Is_Downloaded = result.IsDownloaded;
+                      SD.SD_CertificateID = result.CertificateId;
+                     
                        lstSDDoc.Add(SD);
 
                    }
@@ -160,6 +162,7 @@ namespace DCISDBManager.trnLib.MasterMaintainance
                        SD.Consignee_ = Cone;
                        SD.Consignor_ = Con;
                        SD.Is_Downloaded = result.IsDownloaded;
+                       SD.SD_CertificateID = result.CertificateId;
                        lstSDDoc.Add(SD);
 
                    }

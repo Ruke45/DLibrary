@@ -22,7 +22,7 @@ namespace DCISDBManager
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DocMgmtDB")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="NCE_DB")]
 	public partial class DCISLCDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -33,7 +33,7 @@ namespace DCISDBManager
     #endregion
 		
 		public DCISLCDataContext() : 
-				base(global::DCISDBManager.Properties.Settings.Default.DocMgmtDBConnectionString2, mappingSource)
+				base(global::DCISDBManager.Properties.Settings.Default.NCE_DBConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -2371,6 +2371,20 @@ namespace DCISDBManager
 			return ((ISingleResult<DCISgetAllCertificateCanceldetailsResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DCISgetSuppotingDocumentPeriodicDetail")]
+		public ISingleResult<DCISgetSuppotingDocumentPeriodicDetailResult> DCISgetSuppotingDocumentPeriodicDetail([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string customerId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(8)")] string startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(8)")] string endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceRateId", DbType="VarChar(20)")] string invoiceRateId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OtherRateId", DbType="VarChar(20)")] string otherRateId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string supdocInvoiceRateId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string supdocOtherRateId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AtachSheetId", DbType="VarChar(20)")] string atachSheetId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerId, status, startDate, endDate, invoiceRateId, otherRateId, supdocInvoiceRateId, supdocOtherRateId, atachSheetId);
+			return ((ISingleResult<DCISgetSuppotingDocumentPeriodicDetailResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DCISgetattachdocumentdetailsfordown")]
+		public ISingleResult<DCISgetattachdocumentdetailsfordownResult> DCISgetattachdocumentdetailsfordown([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Certid", DbType="VarChar(20)")] string certid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), certid);
+			return ((ISingleResult<DCISgetattachdocumentdetailsfordownResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DCISgetSupportingDocumentDown")]
 		public ISingleResult<DCISgetSupportingDocumentDownResult> DCISgetSupportingDocumentDown([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string requestID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string reqstID)
 		{
@@ -2385,18 +2399,11 @@ namespace DCISDBManager
 			return ((ISingleResult<DCISgetSupportingDocumentDownDateResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DCISgetSuppotingDocumentPeriodicDetail")]
-		public ISingleResult<DCISgetSuppotingDocumentPeriodicDetailResult> DCISgetSuppotingDocumentPeriodicDetail([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string customerId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(8)")] string startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(8)")] string endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceRateId", DbType="VarChar(20)")] string invoiceRateId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OtherRateId", DbType="VarChar(20)")] string otherRateId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string supdocInvoiceRateId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string supdocOtherRateId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AtachSheetId", DbType="VarChar(20)")] string atachSheetId)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DCISgetINputInvoiceTotal")]
+		public ISingleResult<DCISgetINputInvoiceTotalResult> DCISgetINputInvoiceTotal([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoicNo", DbType="NVarChar(50)")] string invoicNo)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerId, status, startDate, endDate, invoiceRateId, otherRateId, supdocInvoiceRateId, supdocOtherRateId, atachSheetId);
-			return ((ISingleResult<DCISgetSuppotingDocumentPeriodicDetailResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DCISgetattachdocumentdetailsfordown")]
-		public ISingleResult<DCISgetattachdocumentdetailsfordownResult> DCISgetattachdocumentdetailsfordown([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Certid", DbType="VarChar(20)")] string certid)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), certid);
-			return ((ISingleResult<DCISgetattachdocumentdetailsfordownResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoicNo);
+			return ((ISingleResult<DCISgetINputInvoiceTotalResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -23592,6 +23599,184 @@ namespace DCISDBManager
 		}
 	}
 	
+	public partial class DCISgetSuppotingDocumentPeriodicDetailResult
+	{
+		
+		private string _RequestID;
+		
+		private string _UploadDocName;
+		
+		private string _SupportingDocID;
+		
+		private decimal _Rates;
+		
+		private string _RatesId;
+		
+		public DCISgetSuppotingDocumentPeriodicDetailResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string RequestID
+		{
+			get
+			{
+				return this._RequestID;
+			}
+			set
+			{
+				if ((this._RequestID != value))
+				{
+					this._RequestID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UploadDocName", DbType="VarChar(50)")]
+		public string UploadDocName
+		{
+			get
+			{
+				return this._UploadDocName;
+			}
+			set
+			{
+				if ((this._UploadDocName != value))
+				{
+					this._UploadDocName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupportingDocID", DbType="VarChar(20)")]
+		public string SupportingDocID
+		{
+			get
+			{
+				return this._SupportingDocID;
+			}
+			set
+			{
+				if ((this._SupportingDocID != value))
+				{
+					this._SupportingDocID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rates", DbType="Decimal(18,6) NOT NULL")]
+		public decimal Rates
+		{
+			get
+			{
+				return this._Rates;
+			}
+			set
+			{
+				if ((this._Rates != value))
+				{
+					this._Rates = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RatesId", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string RatesId
+		{
+			get
+			{
+				return this._RatesId;
+			}
+			set
+			{
+				if ((this._RatesId != value))
+				{
+					this._RatesId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class DCISgetattachdocumentdetailsfordownResult
+	{
+		
+		private string _RequestRefNo;
+		
+		private string _UploadedPath;
+		
+		private string _SupportingDocumentName;
+		
+		private string _SupportingDocumentId;
+		
+		public DCISgetattachdocumentdetailsfordownResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestRefNo", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string RequestRefNo
+		{
+			get
+			{
+				return this._RequestRefNo;
+			}
+			set
+			{
+				if ((this._RequestRefNo != value))
+				{
+					this._RequestRefNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UploadedPath", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string UploadedPath
+		{
+			get
+			{
+				return this._UploadedPath;
+			}
+			set
+			{
+				if ((this._UploadedPath != value))
+				{
+					this._UploadedPath = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupportingDocumentName", DbType="VarChar(100)")]
+		public string SupportingDocumentName
+		{
+			get
+			{
+				return this._SupportingDocumentName;
+			}
+			set
+			{
+				if ((this._SupportingDocumentName != value))
+				{
+					this._SupportingDocumentName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupportingDocumentId", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string SupportingDocumentId
+		{
+			get
+			{
+				return this._SupportingDocumentId;
+			}
+			set
+			{
+				if ((this._SupportingDocumentId != value))
+				{
+					this._SupportingDocumentId = value;
+				}
+			}
+		}
+	}
+	
 	public partial class DCISgetSupportingDocumentDownResult
 	{
 		
@@ -23622,6 +23807,8 @@ namespace DCISDBManager
 		private string _Consignee;
 		
 		private string _InvoiceNo;
+		
+		private string _CertificateId;
 		
 		public DCISgetSupportingDocumentDownResult()
 		{
@@ -23850,6 +24037,22 @@ namespace DCISDBManager
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CertificateId", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string CertificateId
+		{
+			get
+			{
+				return this._CertificateId;
+			}
+			set
+			{
+				if ((this._CertificateId != value))
+				{
+					this._CertificateId = value;
+				}
+			}
+		}
 	}
 	
 	public partial class DCISgetSupportingDocumentDownDateResult
@@ -23882,6 +24085,8 @@ namespace DCISDBManager
 		private string _Consignee;
 		
 		private string _InvoiceNo;
+		
+		private string _CertificateId;
 		
 		public DCISgetSupportingDocumentDownDateResult()
 		{
@@ -24110,181 +24315,45 @@ namespace DCISDBManager
 				}
 			}
 		}
-	}
-	
-	public partial class DCISgetSuppotingDocumentPeriodicDetailResult
-	{
 		
-		private string _RequestID;
-		
-		private string _UploadDocName;
-		
-		private string _SupportingDocID;
-		
-		private decimal _Rates;
-		
-		private string _RatesId;
-		
-		public DCISgetSuppotingDocumentPeriodicDetailResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string RequestID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CertificateId", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string CertificateId
 		{
 			get
 			{
-				return this._RequestID;
+				return this._CertificateId;
 			}
 			set
 			{
-				if ((this._RequestID != value))
+				if ((this._CertificateId != value))
 				{
-					this._RequestID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UploadDocName", DbType="VarChar(50)")]
-		public string UploadDocName
-		{
-			get
-			{
-				return this._UploadDocName;
-			}
-			set
-			{
-				if ((this._UploadDocName != value))
-				{
-					this._UploadDocName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupportingDocID", DbType="VarChar(20)")]
-		public string SupportingDocID
-		{
-			get
-			{
-				return this._SupportingDocID;
-			}
-			set
-			{
-				if ((this._SupportingDocID != value))
-				{
-					this._SupportingDocID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rates", DbType="Decimal(18,6) NOT NULL")]
-		public decimal Rates
-		{
-			get
-			{
-				return this._Rates;
-			}
-			set
-			{
-				if ((this._Rates != value))
-				{
-					this._Rates = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RatesId", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string RatesId
-		{
-			get
-			{
-				return this._RatesId;
-			}
-			set
-			{
-				if ((this._RatesId != value))
-				{
-					this._RatesId = value;
+					this._CertificateId = value;
 				}
 			}
 		}
 	}
 	
-	public partial class DCISgetattachdocumentdetailsfordownResult
+	public partial class DCISgetINputInvoiceTotalResult
 	{
 		
-		private string _RequestRefNo;
+		private System.Nullable<int> _Total;
 		
-		private string _UploadedPath;
-		
-		private string _SupportingDocumentName;
-		
-		private string _SupportingDocumentId;
-		
-		public DCISgetattachdocumentdetailsfordownResult()
+		public DCISgetINputInvoiceTotalResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestRefNo", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string RequestRefNo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Int")]
+		public System.Nullable<int> Total
 		{
 			get
 			{
-				return this._RequestRefNo;
+				return this._Total;
 			}
 			set
 			{
-				if ((this._RequestRefNo != value))
+				if ((this._Total != value))
 				{
-					this._RequestRefNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UploadedPath", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
-		public string UploadedPath
-		{
-			get
-			{
-				return this._UploadedPath;
-			}
-			set
-			{
-				if ((this._UploadedPath != value))
-				{
-					this._UploadedPath = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupportingDocumentName", DbType="VarChar(100)")]
-		public string SupportingDocumentName
-		{
-			get
-			{
-				return this._SupportingDocumentName;
-			}
-			set
-			{
-				if ((this._SupportingDocumentName != value))
-				{
-					this._SupportingDocumentName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupportingDocumentId", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
-		public string SupportingDocumentId
-		{
-			get
-			{
-				return this._SupportingDocumentId;
-			}
-			set
-			{
-				if ((this._SupportingDocumentId != value))
-				{
-					this._SupportingDocumentId = value;
+					this._Total = value;
 				}
 			}
 		}

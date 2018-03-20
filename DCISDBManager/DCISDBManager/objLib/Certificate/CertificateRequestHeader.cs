@@ -377,5 +377,12 @@ namespace DCISDBManager.objLib.Certificate
             get { return AddtoRefference; }
             set { AddtoRefference = value; }
         }
+
+        string SaveTemplateName;
+        public string Save_TemplateName
+        {
+            get { return SaveTemplateName; }
+            set { SaveTemplateName = value; }
+        }
     }
 }

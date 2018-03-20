@@ -69,7 +69,7 @@ namespace DCISDBManager.trnLib.CertificateManagement
 
                         if (hdr.Addto_Refference)
                         {
-                            dbContext.DCISsetReffrennceRequest(hdr.Consignee1.Replace("<br />", " - "), hdr.CustomerId1, certificatereqno);
+                            dbContext.DCISsetReffrennceRequest(hdr.Save_TemplateName, hdr.CustomerId1, certificatereqno);
                         }
                         dbContext.SubmitChanges();
                         dbContext.Transaction.Commit();
@@ -1161,6 +1161,33 @@ namespace DCISDBManager.trnLib.CertificateManagement
             {
                 ErrorLog.LogError(ex);
                 return false;
+            }
+
+        }
+
+
+        public int CheckInvoicNo(string InvoiceNo)
+        {
+            DCISLCDataContext datacontext = new DCISLCDataContext();
+            try
+            {
+
+                SupportingDocList supportingDOClist = new SupportingDocList();
+
+
+                datacontext.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["DocMgmtDBConnectionString"].ToString();
+                var invo = datacontext.DCISgetINputInvoiceTotal(InvoiceNo).FirstOrDefault().Total;
+
+                int inv = Convert.ToInt32(invo);               
+
+                return inv;
+
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.LogError(ex);
+                // Console.WriteLine(ex.Message.ToString());
+                return 99;
             }
 
         }
