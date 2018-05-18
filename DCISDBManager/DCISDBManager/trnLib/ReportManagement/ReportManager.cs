@@ -13,7 +13,7 @@ namespace DCISDBManager.trnLib.ReportManagement
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DocMgmtDBConnectionString"].ConnectionString);
 
-        public DataTable getCORegistryReport(DateTime FDate, DateTime TDate, string CertRateID, string InvoSupDID, string InvoRID, string OthrDRID, string CID, string NCEM, string PayType)
+        public DataTable getCORegistryReport(DateTime FDate, DateTime TDate, string CertRateID, string InvoSupDID, string InvoRID, string OthrDRID, string CID, string NCEM, string PayType,string IsRequ)
         {
             try
             {
@@ -38,6 +38,7 @@ namespace DCISDBManager.trnLib.ReportManagement
                 SqlParameter paraCustomerID = new SqlParameter("@CustomerId", SqlDbType.VarChar);
                 SqlParameter paraNCEMember = new SqlParameter("@NCEMember", SqlDbType.VarChar);
                 SqlParameter paraPayType = new SqlParameter("@Paytype", SqlDbType.VarChar);
+                SqlParameter paraSealReq = new SqlParameter("@SealRequired", SqlDbType.VarChar);
 
                 paraFrmDate.Value = FDate.ToString("yyyyMMdd");
                 paraToDate.Value = TDate.ToString("yyyyMMdd");
@@ -48,6 +49,7 @@ namespace DCISDBManager.trnLib.ReportManagement
                 paraCustomerID.Value = CID;
                 paraNCEMember.Value = NCEM;
                 paraPayType.Value = PayType;
+                paraSealReq.Value = IsRequ; // Degital Signature added or not
 
                 cmd.Parameters.Add(paraFrmDate);
                 cmd.Parameters.Add(paraToDate);
@@ -58,6 +60,7 @@ namespace DCISDBManager.trnLib.ReportManagement
                 cmd.Parameters.Add(paraCustomerID);
                 cmd.Parameters.Add(paraNCEMember);
                 cmd.Parameters.Add(paraPayType);
+                cmd.Parameters.Add(paraSealReq);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);

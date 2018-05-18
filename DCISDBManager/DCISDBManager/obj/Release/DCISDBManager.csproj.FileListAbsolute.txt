@@ -19,4 +19,3 @@ C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\bin\Release
 C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\bin\Release\itextsharp.dll
 C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\obj\Release\DCISDBManager.dll
 C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\obj\Release\DCISDBManager.pdb
-C:\Users\Admin\Documents\GitHub\DLibrary\DCISDBManager\DCISDBManager\obj\Release\DCISDBManager.csprojResolveAssemblyReference.cache
