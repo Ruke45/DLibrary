@@ -21,37 +21,8 @@ Version.          1.1.0
 
 namespace DCISDBManager.PDFCreator
 {
-    public class MassActiveCertificateTemplate
+    public class MassActiveCertificateTemplate : Base_Certificate
     {
-        Font fontBoxHeader = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, 1, BaseColor.BLACK);//Calibri
-        Font fontBoxDetail = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, 0, BaseColor.BLACK);
-        Font fontBracketText = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 6, 0, BaseColor.BLACK);
-        Font fontItemDetails = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, 0, BaseColor.BLACK);
-        Font fontDocumentHeader = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 14, 1, BaseColor.BLACK);
-        Font fontAddress = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 8, 1, BaseColor.BLACK);
-        Font fontSignatureInfo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 8, 0, BaseColor.BLACK);
-        Font fontFreeItemDetails = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, 0, BaseColor.WHITE);
-
-        Font fontBoxHeaderFontSmal = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 8, 1, BaseColor.BLACK);//Calibri
-        Font fontBoxDetailFontSmal = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 8, 0, BaseColor.BLACK);
-
-        Font fontTableHeader = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 9, 1, BaseColor.BLACK);
-        Font fontSmallBold = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 8, Font.BOLD, BaseColor.BLACK);
-        Font fontFooterDetails = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 8, 0, BaseColor.BLACK);
-
-        Document document = null;
-        PdfWriter pdfwriter = null;
-        string LOGOimgPath = string.Empty;
-        string CertificateSavePath = string.Empty;
-        string AuthoirzedOfficer = "";
-        string AuthTelephone = "";
-        string CertificateId = "";
-        string SignedDate = "";
-       // string Comment = string.Empty;
-
-        CertificateRequestHeader CertificateHead = null;
-        List<CertificateRequestDetail> CertReqDetails = null;
-
 
         public MassActiveCertificateTemplate(CertificateRequestHeader CRH, List<CertificateRequestDetail> CRDlist, string LOGOpath, string DocPath, string AuthOffer,string Date)
         {
@@ -75,7 +46,9 @@ namespace DCISDBManager.PDFCreator
             this.CertificateId = CertificateID;
 
         }
-        private bool drawCertificateOfOrginHeader()
+       
+        
+        protected override bool drawCertificateOfOrginHeader()
         {
             try
             {
@@ -291,7 +264,7 @@ namespace DCISDBManager.PDFCreator
 
         }
 
-        private void drawBottom(string Comment)
+        protected override void drawBottom(string Comment)
         {
             PdfPTable table = new PdfPTable(4);
 
@@ -484,7 +457,7 @@ namespace DCISDBManager.PDFCreator
             document.Add(FooterTable);
         }
 
-        private void printListHead()
+        protected override void printListHead()
         {
             //----------------------------------------------------------------------------
 
@@ -533,7 +506,7 @@ namespace DCISDBManager.PDFCreator
 
         }
 
-        private void printlistRow()
+        protected override void printlistRow()
         {
             //PdfPTable table = new PdfPTable(3);
 
@@ -635,53 +608,5 @@ namespace DCISDBManager.PDFCreator
             //doc.Add(table);
         }
 
-        private void printStatement()
-        {
-            PdfPTable StatemeTBL = new PdfPTable(4);
-            StatemeTBL.HorizontalAlignment = 1;
-            StatemeTBL.WidthPercentage = 100;
-            //CertificateItems.SpacingBefore = 4;
-            StatemeTBL.SpacingAfter = 2;
-            StatemeTBL.DefaultCell.Border = Rectangle.BOX;
-            StatemeTBL.SetWidths(new int[] { 1, 1, 1, 1 });
-
-
-            string reason = System.Configuration.ConfigurationManager.AppSettings["SigningReason"];
-            if (AuthoirzedOfficer == "")
-            {
-                reason = string.Empty;
-            }
-
-            PdfPCell Statementtxt = new PdfPCell(new Phrase(reason, fontFooterDetails));
-            Statementtxt.Colspan = 4;
-            Statementtxt.FixedHeight = 20f;
-            Statementtxt.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
-            StatemeTBL.AddCell(Statementtxt);
-            document.Add(StatemeTBL);
-        }
-
-        public bool CreateCertificate(string Comment)
-        {
-            try
-            {
-                document = new Document(PageSize.A4, 25f, 25f, 25f, 15f);//Lest,right,top,bottom
-
-                pdfwriter = PdfWriter.GetInstance(document, new FileStream(CertificateSavePath, FileMode.Create));
-
-                document.Open();
-                drawCertificateOfOrginHeader();
-                printListHead();
-                printlistRow();
-                drawBottom(Comment);
-                printStatement();
-                document.Close();
-                return true;
-            }
-            catch (Exception Ex)
-            {
-                ErrorLog.LogError(Ex);
-                return false;
-            }
-        }
     }
 }

@@ -20,39 +20,8 @@ Version.          1.1.0
 *******************************************************************************/
 namespace DCISDBManager.PDFCreator
 {
-    public class ColumnWithoutHSTemplate
+    public class ColumnWithoutHSTemplate : Base_Certificate
     {
-        Font fontBoxHeader = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, 1, BaseColor.BLACK);//Calibri
-        Font fontBoxDetail = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, 0, BaseColor.BLACK);
-
-        Font fontBoxHeaderFontSmal = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 8, 1, BaseColor.BLACK);//Calibri
-        Font fontBoxDetailFontSmal = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 8, 0, BaseColor.BLACK);
-
-
-        Font fontBracketText = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 6, 0, BaseColor.BLACK);
-        Font fontItemDetails = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, 0, BaseColor.BLACK);
-        Font fontDocumentHeader = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 14, 1, BaseColor.BLACK);
-        Font fontAddress = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 8, 1, BaseColor.BLACK);
-        Font fontSignatureInfo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 8, 0, BaseColor.BLACK);
-        Font fontFreeItemDetails = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, 0, BaseColor.WHITE);
-
-        Font fontTableHeader = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 9, 1, BaseColor.BLACK);
-        Font fontSmallBold = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 8, Font.BOLD, BaseColor.BLACK);
-        Font fontFooterDetails = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 8, 0, BaseColor.BLACK);
-
-        Document document = null;
-        PdfWriter pdfwriter = null;
-        string LOGOimgPath = string.Empty;
-        string CertificateSavePath = string.Empty;
-        string AuthoirzedOfficer = "";
-        string AuthTelephone = "";
-        string CertificateId = "";
-        string SignedDate = "";
-        // string Comment = string.Empty;
-
-        CertificateRequestHeader CertificateHead = null;
-        List<CertificateRequestDetail> CertReqDetails = null;
-
 
         public ColumnWithoutHSTemplate(CertificateRequestHeader CRH, List<CertificateRequestDetail> CRDlist, string LOGOpath, string DocPath, string AuthOffer,string Date)
         {
@@ -76,243 +45,8 @@ namespace DCISDBManager.PDFCreator
             this.CertificateId = CertificateID;
 
         }
-        private bool drawCertificateOfOrginHeader()
-        {
-            try
-            {
-                //Start of Top Table
 
-                PdfPTable topTable = new PdfPTable(2);
-                topTable.HorizontalAlignment = 1;
-                topTable.WidthPercentage = 100;
-                topTable.SpacingBefore = 0;
-                topTable.SpacingAfter = 0;
-                topTable.DefaultCell.Border = Rectangle.BOX;
-                topTable.SetWidths(new int[] { 1, 1 });
-
-                // Top Table Left  Columns //
-                PdfPTable topLeftUpTable = new PdfPTable(1);
-
-                // Consignor Name Start 
-                PdfPCell ConsignorHederCell = new PdfPCell(new Phrase("1. Consignor / Exporter", fontBoxHeader));
-                ConsignorHederCell.Border = Rectangle.NO_BORDER;
-                ConsignorHederCell.FixedHeight = 15f;
-                topLeftUpTable.AddCell(ConsignorHederCell);
-
-                Paragraph consignorParagraph = new Paragraph();
-                Phrase consignorNamePhrase = new Phrase(this.CertificateHead.Consignor1.Replace("<br />", "\r\n") + "\n", fontBoxDetail); //-------this.CertificateHead.Consignor1
-                consignorParagraph.Add(consignorNamePhrase);
-
-                PdfPCell ConsignorDetailCell = new PdfPCell(consignorParagraph);
-                ConsignorDetailCell.Border = Rectangle.NO_BORDER;
-                ConsignorDetailCell.FixedHeight = 85f;//65f
-                topLeftUpTable.AddCell(ConsignorDetailCell);
-
-                // Consignor Name Ends 
-
-                // Consignee Name Start 
-                PdfPCell ConsigneeHeaderCell = new PdfPCell(new Phrase("3. Consignee", fontBoxHeader));
-                ConsigneeHeaderCell.Border = Rectangle.NO_BORDER;
-                ConsigneeHeaderCell.Border = Rectangle.TOP_BORDER;
-                ConsigneeHeaderCell.FixedHeight = 15f;
-                topLeftUpTable.AddCell(ConsigneeHeaderCell);
-
-
-                Paragraph consigneeParagraph = new Paragraph();
-                Phrase consigneeNamePhrase = new Phrase(this.CertificateHead.Consignee1.Replace("<br />", "\r\n") + "\n", fontBoxDetail);//--------this.CertificateHead.Consignee1
-                consigneeParagraph.Add(consigneeNamePhrase);
-
-                PdfPCell ConsigneeDetailCell = new PdfPCell(consigneeParagraph);
-                ConsigneeDetailCell.Border = Rectangle.NO_BORDER;
-                ConsigneeDetailCell.FixedHeight = 100f;
-                topLeftUpTable.AddCell(ConsigneeDetailCell);
-
-                // COnsignee Name Ends 
-
-
-                // Consignee Name Start 
-                PdfPCell InoviceNoNDateCell = new PdfPCell(new Phrase("4. Invoice No : " + this.CertificateHead.InvoiceNo1, fontItemDetails));
-                InoviceNoNDateCell.Border = Rectangle.TOP_BORDER;
-                InoviceNoNDateCell.FixedHeight = 15f;
-                topLeftUpTable.AddCell(InoviceNoNDateCell);
-
-                PdfPCell InoviceNoNDateCell1 = new PdfPCell(new Phrase("& Invoice Date : " + this.CertificateHead.InvoiceDate1.ToString("dd/MM/yyyy"), fontItemDetails));
-                InoviceNoNDateCell1.Border = Rectangle.NO_BORDER;
-                InoviceNoNDateCell1.FixedHeight = 15f;
-                topLeftUpTable.AddCell(InoviceNoNDateCell1);
-
-
-                //Paragraph InoviceNDateParagraph = new Paragraph();
-                //Phrase InvoicNDatePhrase = new Phrase("  " + "\n", fontBoxDetail);//-------this.CertificateHead.InvoiceNo1 this.CertificateHead.InvoiceDate1.ToString("dd/MM/yyyy")
-                //InoviceNDateParagraph.Add(InvoicNDatePhrase);
-
-                //PdfPCell InoviceNDateDetailCell = new PdfPCell(InoviceNDateParagraph);
-                //InoviceNDateDetailCell.Border = Rectangle.NO_BORDER;
-                //InoviceNDateDetailCell.FixedHeight = 25f;
-                //topLeftUpTable.AddCell(InoviceNDateDetailCell);
-
-                // COnsignee Name Ends 
-
-                PdfPCell topLeftTableBaseCell = new PdfPCell(new PdfPTable(topLeftUpTable));
-                topTable.AddCell(topLeftTableBaseCell);
-
-                PdfPTable topRightUpTable = new PdfPTable(1);
-                PdfPCell refNoTopLeftCell = new PdfPCell(new Phrase("2. Ref.No : " + this.CertificateId, fontBoxHeader)); // this.CertificateId
-                refNoTopLeftCell.Border = Rectangle.NO_BORDER;
-                refNoTopLeftCell.FixedHeight = 15f;
-                topRightUpTable.AddCell(refNoTopLeftCell);
-
-
-
-                //PdfPCell CEOLableTopRightCell = new PdfPCell(new Phrase("Certificate of Origin", fontDocumentHeader));
-                //CEOLableTopRightCell.FixedHeight = 20f;
-                //CEOLableTopRightCell.HorizontalAlignment = 1;
-                //CEOLableTopRightCell.VerticalAlignment = 1;
-                //CEOLableTopRightCell.Border = Rectangle.NO_BORDER;
-                //topRightUpTable.AddCell(CEOLableTopRightCell);
-
-                iTextSharp.text.Image logoImg = iTextSharp.text.Image.GetInstance(LOGOimgPath);
-
-                PdfPCell logoCell = new PdfPCell(logoImg, false);
-                logoCell.HorizontalAlignment = 1;
-                logoCell.VerticalAlignment = 1;
-                logoCell.Border = Rectangle.NO_BORDER;
-                logoCell.FixedHeight = 200f;//40f
-                topRightUpTable.AddCell(logoCell);
-
-                //StringBuilder chamberAddressStrbuilder = new StringBuilder();
-                //chamberAddressStrbuilder.Append(Environment.NewLine);
-                ////chamberAddressStrbuilder.Append(Environment.NewLine);
-                //chamberAddressStrbuilder.Append("50, Navam Mawatha, Colombo 02, Sri Lanka");
-                ////chamberAddressStrbuilder.Append(Environment.NewLine);
-                //chamberAddressStrbuilder.Append(Environment.NewLine);
-                //chamberAddressStrbuilder.Append("Tel : (0094) 11 - 2421745-6, 2433148, 5588800");
-                ////chamberAddressStrbuilder.Append(Environment.NewLine); 
-                //chamberAddressStrbuilder.Append(Environment.NewLine);
-                //chamberAddressStrbuilder.Append("Fax : (0094) 11 - 2437477, 2449352, 2381012 Email : eco@chamber.lk");
-                //chamberAddressStrbuilder.Append(Environment.NewLine);
-                //chamberAddressStrbuilder.Append(Environment.NewLine);
-
-                //Paragraph chamberAddressPara = new Paragraph(chamberAddressStrbuilder.ToString(), fontAddress);
-
-                //PdfPCell CEOLableAddressTopLeftCell = new PdfPCell(new Paragraph(chamberAddressPara));
-                //CEOLableAddressTopLeftCell.HorizontalAlignment = 1;
-                //CEOLableAddressTopLeftCell.VerticalAlignment = 2;
-                //CEOLableAddressTopLeftCell.Border = Rectangle.BOTTOM_BORDER;
-                //CEOLableAddressTopLeftCell.FixedHeight = 55f;//35f
-                //topRightUpTable.AddCell(CEOLableAddressTopLeftCell);
-
-
-                PdfPCell countryOfOriginHeaderCell = new PdfPCell(new Phrase("7. Country of Origin", fontBoxHeader));
-                countryOfOriginHeaderCell.Border = Rectangle.NO_BORDER;
-                countryOfOriginHeaderCell.FixedHeight = 15f;
-                topRightUpTable.AddCell(countryOfOriginHeaderCell);
-
-                PdfPTable cntryOfOriginDetailTable = new PdfPTable(3);
-                cntryOfOriginDetailTable.SetWidths(new int[] { 1, 6, 1 });
-
-                PdfPCell cntryOfOriginLeftFreeCell = new PdfPCell(new Phrase("  "));
-                cntryOfOriginLeftFreeCell.FixedHeight = 15f;
-                cntryOfOriginLeftFreeCell.Border = Rectangle.NO_BORDER;
-                cntryOfOriginDetailTable.AddCell(cntryOfOriginLeftFreeCell);
-
-                PdfPCell cntryOfOriginDetailCell = new PdfPCell(new Phrase(this.CertificateHead.CountryName1, fontBoxDetail));//---------this.CertificateHead.CountryName1
-                cntryOfOriginDetailCell.FixedHeight = 15f;
-                //cntryOfOriginDetailCell.Border = Rectangle.TOP_BORDER | Rectangle.BOTTOM_BORDER | Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
-                cntryOfOriginDetailCell.Border = Rectangle.NO_BORDER;
-                cntryOfOriginDetailTable.AddCell(cntryOfOriginDetailCell);
-
-                PdfPCell cntryOfOriginRightFreeCell = new PdfPCell(new Phrase(" "));
-                cntryOfOriginRightFreeCell.FixedHeight = 15f;
-                cntryOfOriginRightFreeCell.Border = Rectangle.NO_BORDER;
-
-                cntryOfOriginDetailTable.AddCell(cntryOfOriginRightFreeCell);
-
-                PdfPCell cntryOfOriginDetailbaseCell = new PdfPCell(cntryOfOriginDetailTable);
-                cntryOfOriginDetailbaseCell.Border = Rectangle.NO_BORDER;
-                topRightUpTable.AddCell(cntryOfOriginDetailbaseCell);
-
-                PdfPCell topLeftFreeCell = new PdfPCell(new Phrase(" ", fontBoxHeader));
-                topLeftFreeCell.Border = Rectangle.NO_BORDER;
-                topLeftFreeCell.FixedHeight = 1f;
-                topRightUpTable.AddCell(topLeftFreeCell);
-
-                topTable.AddCell(topRightUpTable);
-
-
-                //End of Top Right Up Table   
-
-                PdfPTable PortingDetailTable1 = new PdfPTable(8);//-----------
-
-                PortingDetailTable1.HorizontalAlignment = 0;
-                PortingDetailTable1.WidthPercentage = 100;
-                //PortingDetailTable1.SpacingBefore = 2f;
-                //PortingDetailTable1.SpacingAfter = 1f;
-                PortingDetailTable1.DefaultCell.Border = Rectangle.NO_BORDER;
-                PortingDetailTable1.SetWidths(new int[] { 1, 2, 1, 2, 1, 2, 1, 2 });
-
-                string PortFloading = "5. Port Of Loading";
-                string Vessel = "6. Vessel ";
-
-                PdfPCell PortOFLoadCellLbl = new PdfPCell(new Phrase(PortFloading, fontBoxHeaderFontSmal));
-                PortOFLoadCellLbl.FixedHeight = 20f;
-                PortOFLoadCellLbl.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                PortingDetailTable1.AddCell(PortOFLoadCellLbl);
-
-                PdfPCell PortOFLoadCellData = new PdfPCell(new Phrase(this.CertificateHead.LoadingPort1, fontBoxDetailFontSmal));//----------this.CertificateHead.LoadingPort1
-                PortOFLoadCellLbl.FixedHeight = 20f;
-                PortOFLoadCellLbl.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                PortingDetailTable1.AddCell(PortOFLoadCellData);
-
-                PdfPCell VessleCellLbl = new PdfPCell(new Phrase(Vessel, fontBoxHeaderFontSmal));
-                VessleCellLbl.FixedHeight = 20f;
-                VessleCellLbl.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                PortingDetailTable1.AddCell(VessleCellLbl);
-
-                PdfPCell VessleCellData = new PdfPCell(new Phrase(this.CertificateHead.Vessel1, fontBoxDetailFontSmal));//------this.CertificateHead.Vessel1
-                VessleCellData.FixedHeight = 20f;
-                VessleCellData.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                PortingDetailTable1.AddCell(VessleCellData);
-
-                string PortOfDischarg = "8. Port of Discharge";
-                string PlaceFDelivery = "9. Place of Delivery";
-
-                PdfPCell PortDischgCellLbl = new PdfPCell(new Phrase(PortOfDischarg, fontBoxHeaderFontSmal));
-                PortDischgCellLbl.FixedHeight = 20f;
-                PortDischgCellLbl.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                PortingDetailTable1.AddCell(PortDischgCellLbl);
-
-                PdfPCell PortDischgCellData = new PdfPCell(new Phrase(this.CertificateHead.PortOfDischarge1, fontBoxDetailFontSmal)); //this.CertificateHead.PortOfDischarge1
-                PortDischgCellData.FixedHeight = 20f;
-                PortDischgCellData.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                PortingDetailTable1.AddCell(PortDischgCellData);
-
-                PdfPCell PlaceofDeliveryLbl = new PdfPCell(new Phrase(PlaceFDelivery, fontBoxHeaderFontSmal));
-                PlaceofDeliveryLbl.FixedHeight = 20f;
-                PlaceofDeliveryLbl.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                PortingDetailTable1.AddCell(PlaceofDeliveryLbl);
-
-                PdfPCell PlaceofDeliveryCellData = new PdfPCell(new Phrase(this.CertificateHead.PlaceOfDelivery1, fontBoxDetailFontSmal)); //this.CertificateHead.PortOfDischarge1
-                PlaceofDeliveryCellData.FixedHeight = 20f;
-                PlaceofDeliveryCellData.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                PortingDetailTable1.AddCell(PlaceofDeliveryCellData);
-
-                document.Add(topTable);
-                document.Add(PortingDetailTable1);
-
-
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                ErrorLog.LogError(ex);
-                return false;
-            }
-
-        }
-
-        private void drawBottom(string Comment)
+        protected override void drawBottom(string Comment)
         {
             PdfPTable table = new PdfPTable(4);
 
@@ -505,7 +239,7 @@ namespace DCISDBManager.PDFCreator
             document.Add(FooterTable);
         }
 
-        private void printListHead()
+        protected override void printListHead()
         {
             //----------------------------------------------------------------------------
 
@@ -554,7 +288,7 @@ namespace DCISDBManager.PDFCreator
 
         }
 
-        private void printlistRow()
+        protected override void printlistRow()
         {
             //PdfPTable table = new PdfPTable(3);
 
@@ -653,55 +387,5 @@ namespace DCISDBManager.PDFCreator
             //doc.Add(table);
         }
 
-        private void printStatement()
-        {
-            PdfPTable StatemeTBL = new PdfPTable(4);
-            StatemeTBL.HorizontalAlignment = 1;
-            StatemeTBL.WidthPercentage = 100;
-            //CertificateItems.SpacingBefore = 4;
-            StatemeTBL.SpacingAfter = 2;
-            StatemeTBL.DefaultCell.Border = Rectangle.BOX;
-            StatemeTBL.SetWidths(new int[] { 1, 1, 1, 1 });
-
-
-            string reason = System.Configuration.ConfigurationManager.AppSettings["SigningReason"];
-
-            if (AuthoirzedOfficer == "")
-            {
-                reason = string.Empty;
-            }
-
-            PdfPCell Statementtxt = new PdfPCell(new Phrase(reason, fontFooterDetails));
-            Statementtxt.Colspan = 4;
-            Statementtxt.FixedHeight = 20f;
-            Statementtxt.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
-            StatemeTBL.AddCell(Statementtxt);
-            document.Add(StatemeTBL);
-        }
-
-        public bool CreateCertificate(string Comment)
-        {
-            try
-            {
-
-                document = new Document(PageSize.A4, 25f, 25f, 25f, 15f);//Lest,right,top,bottom
-
-                pdfwriter = PdfWriter.GetInstance(document, new FileStream(CertificateSavePath, FileMode.Create));
-
-                document.Open();
-                drawCertificateOfOrginHeader();
-                printListHead();
-                printlistRow();
-                drawBottom(Comment);
-                printStatement();
-                document.Close();
-                return true;
-            }
-            catch (Exception Ex)
-            {
-                ErrorLog.LogError(Ex);
-                return false;
-            }
-        }
     }
 }

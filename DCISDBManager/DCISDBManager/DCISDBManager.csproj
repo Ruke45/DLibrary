@@ -107,6 +107,7 @@
     <Compile Include="objLib\Master\PackageTypeList.cs" />
     <Compile Include="objLib\Master\SupportingDocList.cs" />
     <Compile Include="objLib\Usr\UserGroup.cs" />
+    <Compile Include="PDFCreator\Base_Certificate.cs" />
     <Compile Include="PDFCreator\CertificateCreate.cs" />
     <Compile Include="PDFCreator\ColumnWithHSTemplate.cs" />
     <Compile Include="PDFCreator\ColumnWithoutHSTemplate.cs" />
